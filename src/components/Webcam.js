@@ -3,7 +3,7 @@ import * as tf from "@tensorflow/tfjs";
 import Webcam from "react-webcam";
 import { drawRect } from "../utils/Utility";
 import { nextFrame } from "@tensorflow/tfjs";
-import logo from "../assets/twitter.png";
+import logo from "../assets/logo.png";
 
 function SignDetect() {
   const webcamRef = useRef(null);
