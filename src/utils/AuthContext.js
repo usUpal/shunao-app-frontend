@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { auth } from "./firebase";
 
 const AuthContext = React.createContext();
@@ -37,11 +37,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        user.getIdToken().then((idtoken) => {
-          localStorage.setItem("idToken", idtoken);
-        });
-      }
+      console.log(user)
       setCurrentUser(user);
       setLoading(false);
     });

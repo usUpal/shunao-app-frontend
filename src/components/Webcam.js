@@ -1,9 +1,9 @@
-import React, { useRef, useState, useEffect } from "react";
 import * as tf from "@tensorflow/tfjs";
+import React, { useEffect, useRef } from "react";
 import Webcam from "react-webcam";
-import { drawRect } from "../utils/Utility";
-import { nextFrame } from "@tensorflow/tfjs";
 import logo from "../assets/logo.png";
+import { drawRect } from "../utils/Utility";
+import Navbar from "./Navbar";
 
 function SignDetect() {
   const webcamRef = useRef(null);
@@ -87,6 +87,7 @@ function SignDetect() {
 
   return (
     <div className="">
+      <Navbar />
       <div className="flex justify-center">
         {/* <h2 className="text-2xl font-bold my-3">SHUNAP APP</h2> */}
         <img src={logo} className="w-44" alt="" />

@@ -1,8 +1,8 @@
+import { Field, Form, Formik } from "formik";
 import React from "react";
-import * as Yup from "yup";
-import { Form, Formik, Field } from "formik";
-import { useAuth } from "../utils/AuthContext";
 import { NavLink } from "react-router-dom";
+import * as Yup from "yup";
+import { useAuth } from "../utils/AuthContext";
 
 const initValue = {
   email: "",
@@ -21,6 +21,7 @@ const validationSchema = Yup.object().shape({
 function Signup() {
   const { signup } = useAuth();
   const handleSignup = async (values) => {
+    console.log(values)
     await signup(values.email, values.password);
   };
 

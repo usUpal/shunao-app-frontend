@@ -1,9 +1,8 @@
+import { Field, Form, Formik } from "formik";
 import React, { useEffect } from "react";
-import { Form, Formik, Field } from "formik";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useAuth } from "../utils/AuthContext";
-import { isLoggedIn } from "../utils/isLoggedIn";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const initValue = {
   email: "",
@@ -23,13 +22,15 @@ function Login() {
   let { from } = location.state || { from: { pathname: "/" } };
 
   useEffect(() => {
-    if (isLoggedIn()) {
+    if (currentUser) {
       navigate(from, { replace: true });
     }
-  }, [isLoggedIn, currentUser]);
+  }, [currentUser]);
 
   const handleSignin = async (values) => {
+    console.log(values);
     const val = await login(values.email, values.password);
+    console.log(val);
   };
 
   return (
@@ -40,9 +41,8 @@ function Login() {
           initialValues={initValue}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              handleSignin(values, setSubmitting);
-            }, 400);
+            console.log(values);
+            handleSignin(values, setSubmitting);
           }}
         >
           {({
@@ -92,7 +92,6 @@ function Login() {
                 <button
                   className="w-full py-1 bg-blue-500 text-white rounded-2xl font-bold focus:outline-none focus:ring-2 focus:ring-yellow-200"
                   type="submit"
-                  //   disabled={isSubmitting}
                 >
                   Sign in
                 </button>
