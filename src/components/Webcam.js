@@ -14,10 +14,10 @@ function SignDetect() {
     // 3. TODO - Load network
     // e.g. const net = await cocossd.load();
     // https://tensorflowjsrealtimemodel.s3.au-syd.cloud-object-storage.appdomain.cloud/model.json
+    // "https://raw.githubusercontent.com/usUpal/bengali-sign-language-detection/main/Tensorflow/workspace/models/my_ssd_mobnet/converted/model.json"
     const net = await tf.loadGraphModel(
-      // "https://tensorflowjsrealtimemodel.s3.au-syd.cloud-object-storage.appdomain.cloud/model.json"
-      
-    );
+      "https://raw.githubusercontent.com/usUpal/bengali-sign-language-detection/main/Tensorflow/workspace/models/my_ssd_mobnet/converted/model.json"
+      );
 
     //  Loop and detect hands
     setInterval(() => {
